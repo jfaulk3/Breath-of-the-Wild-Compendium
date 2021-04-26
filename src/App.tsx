@@ -1,11 +1,13 @@
 import React from "react";
-const hyrule_compendium = require("hyrule-compendium");
+import Header from "./Header";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
-  let comp = new hyrule_compendium.compendium();
-
-  comp.get_all(console.log); // get all entries
-  return <h1>Hello World</h1>;
+  return (
+    <React.Fragment>
+      <Header />
+    </React.Fragment>
+  );
 }
 
 export default App;
