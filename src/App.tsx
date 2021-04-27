@@ -2,6 +2,8 @@ import Header from "./Header";
 import { Switch, Route } from "react-router-dom";
 import NotFound from "./NotFound";
 import Home from "./Home";
+import Category from "./Category";
+import Entries from "./Entries";
 
 function App() {
   return (
@@ -10,6 +12,12 @@ function App() {
       <Switch>
         <Route exact={true} path="/">
           <Home />
+        </Route>
+        <Route exact={true} path="/category">
+          <Category />
+        </Route>
+        <Route exact={true} path="/category/:categoryName">
+          <Entries />
         </Route>
         <Route>
           <NotFound />
