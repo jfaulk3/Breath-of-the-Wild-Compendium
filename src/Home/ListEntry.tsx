@@ -10,6 +10,8 @@ function ListEntry({ entry }: { entry: entry }) {
   }
   return (
     <div key={entry.name}>
+      {/* ID of the entry */}
+      <div>{entry.id}: </div>
       {/* Name of the entry */}
       <h4>
         {entry.name

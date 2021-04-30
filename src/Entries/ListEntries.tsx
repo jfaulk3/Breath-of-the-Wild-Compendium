@@ -1,15 +1,57 @@
+import { useState, useEffect } from "react";
 import { entry, creatures } from "../interfaces/interface";
+import { Link, useParams } from "react-router-dom";
 
 function ListEntries({ list }: { list: Array<entry> | creatures }) {
-  const array = Array.isArray(list) ? list : [...list.food, ...list.non_food];
+  const [array, setArray] = useState([] as Array<entry>);
+  const {
+    categoryName,
+    foodType,
+  }: { categoryName: string; foodType: string } = useParams();
+
+  useEffect(() => {
+    if (Array.isArray(list)) {
+      setArray(list);
+    } else if (foodType === "nonfood") {
+      setArray([...list.non_food]);
+    } else {
+      setArray([...list.food]);
+    }
+  }, [list, foodType]);
+
+  function handleClick(event: any) {
+    if (Array.isArray(list)) return null;
+
+    if (foodType === "food") {
+      setArray([...list.food]);
+    } else {
+      setArray([...list.non_food]);
+    }
+  }
+
   if (array) {
-    console.log("THE ARRAY VALUE I NEED: ", array);
-    array.map((element, index) => console.log(element));
     return (
       <div>
+        {categoryName === "creatures" ? (
+          <div>
+            <Link onClick={handleClick} to={`/category/${categoryName}/food`}>
+              Food
+            </Link>
+            <Link
+              onClick={handleClick}
+              to={`/category/${categoryName}/nonfood`}
+            >
+              Non-Food
+            </Link>
+          </div>
+        ) : (
+          ""
+        )}
         {array.map((element) => {
           return (
             <div key={element.name}>
+              {/* ID of the entry */}
+              <div>{element.id}: </div>
               {/* Name of the entry */}
               <h4>
                 {element.name

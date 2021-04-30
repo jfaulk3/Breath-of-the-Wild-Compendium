@@ -6,7 +6,7 @@ import { entry, creatures } from "../interfaces/interface";
 
 function Entries() {
   const BASE_URL = "https://botw-compendium.herokuapp.com/api/v2/category/";
-  const { categoryName }: { categoryName: string } = useParams();
+  const { categoryName }: { categoryName: string; food: string } = useParams();
   const [list, setList] = useState([] as entry[] | creatures);
 
   useEffect(() => {
@@ -16,7 +16,6 @@ function Entries() {
           const url = BASE_URL + categoryName;
           const result: { data: any } = await axios.get(url);
           const fetchList: Array<entry> | creatures = result.data.data;
-          console.log(fetchList);
           setList(fetchList);
           console.log("API Request");
         } catch (error) {

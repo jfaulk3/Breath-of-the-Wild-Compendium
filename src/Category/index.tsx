@@ -14,7 +14,12 @@ function Category() {
       <h3>Category route</h3>
       <div>
         {categories.map((category) => (
-          <Link to={`/category/${category}`} key={category}>
+          <Link
+            to={`/category/${category}${
+              category === "creatures" ? "/food" : ""
+            }`}
+            key={category}
+          >
             {category}
           </Link>
         ))}

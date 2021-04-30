@@ -16,7 +16,12 @@ function App() {
         <Route exact={true} path="/category">
           <Category />
         </Route>
-        <Route exact={true} path="/category/:categoryName">
+        <Route
+          path={[
+            "/category/:categoryName",
+            "/category/:categoryName/:foodType",
+          ]}
+        >
           <Entries />
         </Route>
         <Route>
