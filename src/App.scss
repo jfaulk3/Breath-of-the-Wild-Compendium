@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100%;
+  background-color: #2a708f;
+}
+
+$grid__bp-md: 768;
+$grid__cols: 12;
+.container {
+  max-width: $grid__bp-md * 1px;
+  margin: 0 auto;
+
+  &--fluid {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  @for $i from 1 through $grid__cols {
+    .col-#{$i} {
+      flex-basis: (100 / ($grid__cols / $i)) * 1%;
+    }
+  }
+}
+
+.link {
+  color: #000000;
+  text-decoration: none; /* no underline */
+}

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { entry } from "../interfaces/interface";
 import ListEntry from "./ListEntry";
+import "./Home.scss";
 
 function Home() {
   const BASE_URL = "https://botw-compendium.herokuapp.com/api/v2/entry/";
@@ -33,24 +34,30 @@ function Home() {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="search">
-          <input
-            id="search"
-            value={search}
-            onChange={handleSearch}
-            name="search"
-            type="text"
-            placeholder={"Search by name or Id:"}
-          />
-        </label>
-        <input type="submit" value="Submit"></input>
-      </form>
-      <div>
-        <Link to="/category">Search by category</Link>
+    <div className="container">
+      <div className="row input">
+        <input
+          className="col-6"
+          id="search"
+          value={search}
+          onChange={handleSearch}
+          name="search"
+          type="text"
+          placeholder={"Search by name or Id:"}
+        />
+        <input
+          onClick={handleSubmit}
+          className="col-6"
+          type="submit"
+          value="Submit"
+        ></input>
       </div>
-      <div>
+      <div className="row">
+        <Link className="col-12 home-link link" to="/category">
+          Search by category
+        </Link>
+      </div>
+      <div className="row">
         <ListEntry entry={entry} />
       </div>
     </div>

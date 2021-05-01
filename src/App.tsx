@@ -4,10 +4,11 @@ import NotFound from "./NotFound";
 import Home from "./Home";
 import Category from "./Category";
 import Entries from "./Entries";
+import "./App.scss";
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Switch>
         <Route exact={true} path="/">

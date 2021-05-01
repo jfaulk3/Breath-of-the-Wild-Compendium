@@ -1,0 +1,13 @@
+.input {
+  min-height: 40px;
+}
+
+.card {
+  background-image: linear-gradient(315deg, #247ba0 0%, #ffffb5 74%);
+  padding: 15px 0;
+  margin: 0;
+  .images {
+    max-width: 100%;
+    padding: 15px;
+  }
+}
