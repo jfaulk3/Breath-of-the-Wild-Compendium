@@ -35,7 +35,7 @@ function Home() {
   };
   return (
     <div className="container">
-      <div className="row input">
+      <form className="row input" onSubmit={handleSubmit}>
         <input
           className="col-6"
           id="search"
@@ -45,13 +45,8 @@ function Home() {
           type="text"
           placeholder={"Search by name or Id:"}
         />
-        <input
-          onClick={handleSubmit}
-          className="col-6"
-          type="submit"
-          value="Submit"
-        ></input>
-      </div>
+        <input className="col-6" type="submit" value="Submit"></input>
+      </form>
       <div className="row">
         <Link className="col-12 home-link link" to="/category">
           Search by category

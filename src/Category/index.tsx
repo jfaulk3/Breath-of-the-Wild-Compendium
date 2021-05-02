@@ -11,16 +11,21 @@ const categories = [
 function Category() {
   return (
     <div>
-      <h3>Category route</h3>
-      <div>
+      <div className="categoryTitle">
+        <h3>Choose a Category</h3>
+      </div>
+      <div className="row">
         {categories.map((category) => (
           <Link
+            className="home-link link col-12"
             to={`/category/${category}${
               category === "creatures" ? "/food" : ""
             }`}
             key={category}
           >
-            {category}
+            {category.replace(/(^\w{1})|(\s+\w{1})/g, (
+              letter //regex capitalizes first letter of each word.
+            ) => letter.toUpperCase())}
           </Link>
         ))}
       </div>

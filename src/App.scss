@@ -31,6 +31,38 @@ $grid__cols: 12;
       flex-basis: (100 / ($grid__cols / $i)) * 1%;
     }
   }
+
+  .card {
+    background-image: linear-gradient(315deg, #247ba0 0%, #ffffb5 74%);
+    padding: 15px;
+    margin: 10px 0;
+    .info {
+      align-self: center;
+      .name {
+        border-bottom: 1px solid #000000;
+      }
+    }
+    .description {
+      border-top: 1px solid #000000;
+    }
+    .images {
+      max-width: 100%;
+      padding: 15px;
+    }
+  }
+}
+
+.categoryTitle {
+  justify-content: center;
+  text-align: center;
+  background-image: linear-gradient(315deg, #a0ddf7 0%, #f1f177 74%);
+}
+
+.home-link {
+  background-color: #88b7aa;
+  border: 1px solid #000000;
+  text-align: center;
+  padding: 10px;
 }
 
 .link {

@@ -10,4 +10,5 @@ Thanks to gadhagod for their API. [https://github.com/gadhagod/Hyrule-Compendium
 
 ## Future Goals
 
-Add the ability to sort;
+Add the ability to sort.
+Add placeholder images when the server responds with 404.

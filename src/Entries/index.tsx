@@ -32,14 +32,14 @@ function Entries() {
 
   if (list) {
     return (
-      <div>
-        <div>
+      <React.Fragment>
+        <div className="row categoryTitle">
           <h2>{categoryName.toUpperCase()}</h2>
         </div>
-        <div>
+        <div className="row">
           <ListEntries list={list} />{" "}
         </div>
-      </div>
+      </React.Fragment>
     );
   } else {
     return null;

@@ -13,7 +13,7 @@ function ListEntry({ entry }: { entry: entry }) {
     <div className="card col-12" key={entry.name}>
       <div className="row">
         <div className="info col-6">
-          <div className="row">
+          <div className="row name">
             {/* ID of the entry */}
             <div className="col-3">{entry.id}: </div>
             {/* Name of the entry */}
@@ -27,29 +27,39 @@ function ListEntry({ entry }: { entry: entry }) {
           </div>
           {/*Attack and Defense of entry */}
           <div>
-            {!entry.attack ? "" : <p>Attack: {entry.attack}</p>}
-            {!entry.defense ? "" : <p>Defense: {entry.defense}</p>}
+            {entry.attack && entry.attack.toString() ? (
+              <p>Attack: {entry.attack}</p>
+            ) : (
+              ""
+            )}
+            {entry.defense && entry.defense.toString() ? (
+              <p>Defense: {entry.defense}</p>
+            ) : (
+              ""
+            )}
           </div>
           {/*Cooking Effect of entry */}
           <div>
             {!entry.cooking_effect ? (
               ""
             ) : (
-              <p>Cooking Effects: {entry.cooking_effect}</p>
+              <div>
+                <h5>Cooking Effects:</h5> <p>{entry.cooking_effect}</p>
+              </div>
             )}
           </div>
           {/*Hearts Recovered Value of entry */}
           <div>
-            {!entry.hearts_recovered ? (
-              ""
-            ) : (
+            {entry.hearts_recovered && entry.hearts_recovered.toString() ? (
               <p>Hearts Recovered: {entry.hearts_recovered}</p>
+            ) : (
+              ""
             )}
           </div>
           {/* Drops left by the entry */}
-          {entry.drops ? (
+          {entry.drops && entry.drops.length > 0 ? (
             <div>
-              Drops:{" "}
+              <h5>Drops:</h5>
               {entry.drops.map((drop) => (
                 <p key={drop}>{drop}</p>
               ))}
@@ -58,9 +68,9 @@ function ListEntry({ entry }: { entry: entry }) {
             ""
           )}
           {/* Common Locations of the entry */}
-          {entry.common_locations ? (
+          {entry.common_locations && entry.common_locations.length > 0 ? (
             <div>
-              Common Locations:{" "}
+              <h5> Common Locations:</h5>
               {entry.common_locations.map((location) => (
                 <p key={location}>{location}</p>
               ))}
@@ -80,7 +90,9 @@ function ListEntry({ entry }: { entry: entry }) {
       </div>
 
       {/* Description of the entry */}
-      <p>{entry.description ? entry.description : "Unknown Description"}</p>
+      <p className="description">
+        {entry.description ? entry.description : "Unknown Description"}
+      </p>
     </div>
   );
 }
